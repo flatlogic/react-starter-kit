@@ -49,9 +49,9 @@ class Html extends Component {
         <style id="css" dangerouslySetInnerHTML={{ __html: this.props.css }} />
       </head>
       <body>
-        <div id="app" dangerouslySetInnerHTML={{ __html: this.props.body }} />
+        <div id="app" dangerouslySetInnerHTML={{ __html: this.props.body }} ></div>
         <script src={this.props.entry}></script>
-        <script dangerouslySetInnerHTML={this.trackingCode()} />
+        <script dangerouslySetInnerHTML={this.trackingCode()} ></script>
       </body>
       </html>
     );

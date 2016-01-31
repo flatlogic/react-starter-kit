@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { IndexRoute, Route } from 'react-router';
+import { IndexRoute, Route, Redirect } from 'react-router';
 import fetch from './core/fetch';
 import App from './components/App';
 import ContentPage from './components/ContentPage';
@@ -26,6 +26,7 @@ async function getContextComponent(location, callback) {
 
 export default (
   <Route>
+    <Redirect from="/company" to="/about" />
     <Route path="/" component={App}>
       <IndexRoute getComponent={getContextComponent} />
       <Route path="contact" component={ContactPage} />

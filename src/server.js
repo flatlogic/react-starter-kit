@@ -25,6 +25,7 @@ import routes from './routes';
 import ContextHolder from './core/ContextHolder';
 import assets from './assets';
 import { port, auth, analytics } from './config';
+import bootstrap from 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 const server = global.server = express();
 
@@ -107,6 +108,7 @@ server.get('*', async (req, res, next) => {
         onSetMeta: (key, value) => (data[key] = value),
         onPageNotFound: () => (statusCode = 404),
       };
+      css.push(bootstrap._getCss());
       data.body = ReactDOM.renderToString(
         <ContextHolder context={context}>
           <RouterContext {...renderProps} />

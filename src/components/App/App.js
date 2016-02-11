@@ -9,6 +9,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import s from './App.scss';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
@@ -24,14 +25,6 @@ class App extends Component {
     insertCss: PropTypes.func,
   };
 
-  componentWillMount() {
-    this.removeCss = this.context.insertCss(s);
-  }
-
-  componentWillUnmount() {
-    this.removeCss();
-  }
-
   render() {
     return !this.props.error ? (
       <div>
@@ -45,4 +38,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default withStyles(App, s);

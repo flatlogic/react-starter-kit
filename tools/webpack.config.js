@@ -36,7 +36,7 @@ const GLOBALS = {
 
 const config = {
   output: {
-    publicPath: '/',
+    publicPath: DEBUG ? 'http://localhost:3001/' : 'http://example.com/',
     sourcePrefix: '  ',
   },
 
@@ -72,12 +72,22 @@ const config = {
         ],
         loader: 'babel-loader',
       }, {
-        test: /\.scss$/,
+        test: /_bootstrap.scss$/,
         loaders: [
           'isomorphic-style-loader',
-          `css-loader?${DEBUG ? 'sourceMap&' : 'minimize&'}modules&localIdentName=` +
-          `${DEBUG ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]'}`,
-          'postcss-loader?parser=postcss-scss',
+          `css-loader?${DEBUG ? 'sourceMap&' : 'minimize&'}modules&localIdentName=[local]&importLoaders=2`,
+          'postcss?parser=postcss-scss',
+          'sass'
+        ],
+      }, {
+        test: /\.scss$/,
+        exclude: [/_bootstrap.scss$/],
+        loaders: [
+          'isomorphic-style-loader',
+          `css-loader?${DEBUG ? 'sourceMap&' : 'minimize&'}modules&localIdentName=
+          ${DEBUG ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]'}&importLoaders=2`,
+          'postcss?parser=postcss-scss',
+          'sass'
         ],
       }, {
         test: /\.json$/,

@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-@import '../variables.scss';
+@import '../../styles/app';
 
 .root {
 
@@ -15,6 +15,6 @@
 
 .container {
   margin: 0 auto;
-  padding: 0 0 40px;
+  padding: 0 0 $padding-large-vertical*4; // using bootstrap variable
   max-width: $max-content-width;
 }

@@ -1,0 +1,22 @@
+/**
+ * Use this file to define application variables and override bootstrap variables.
+ * For an example of using bootstrap variables see ContactPage.scss
+ */
+
+/*
+ * Typography
+ * ========================================================================== */
+
+$font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif; // overriding bootstrap variable
+
+/*
+ * Layout
+ * ========================================================================== */
+
+$max-content-width:     1000px; // custom application variable
+
+
+/*
+ * Misc
+ * ========================================================================== */
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/'; // overriding bootstrap variable

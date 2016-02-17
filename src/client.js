@@ -16,7 +16,7 @@ import routes from './routes';
 import Location from './core/Location';
 import ContextHolder from './core/ContextHolder';
 import { addEventListener, removeEventListener } from './core/DOMUtils';
-import bootstrap from 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+import theme from './styles/theme.scss';
 
 let cssContainer = document.getElementById('css');
 const appContainer = document.getElementById('app');
@@ -71,7 +71,7 @@ function run() {
   const { pathname, search, hash } = window.location;
   const location = `${pathname}${search}${hash}`;
 
-  bootstrap._insertCss();
+  theme._insertCss();
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     render(

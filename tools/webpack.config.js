@@ -72,7 +72,7 @@ const config = {
         ],
         loader: 'babel-loader',
       }, {
-        test: /_bootstrap.scss$/,
+        test: /theme.scss$/,
         loaders: [
           'isomorphic-style-loader',
           `css-loader?${DEBUG ? 'sourceMap&' : 'minimize&'}modules&localIdentName=[local]&importLoaders=2`,
@@ -81,7 +81,7 @@ const config = {
         ],
       }, {
         test: /\.scss$/,
-        exclude: [/_bootstrap.scss$/],
+        exclude: [/theme.scss$/],
         loaders: [
           'isomorphic-style-loader',
           `css-loader?${DEBUG ? 'sourceMap&' : 'minimize&'}modules&localIdentName=
